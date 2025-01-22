@@ -1,7 +1,28 @@
 import { useTheme } from "../ThemeContext";
+import { useState, useEffect } from "react";
 
 const NoChatSelected = () => {
   const { theme } = useTheme();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Check the screen width on component mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    // Set the initial value
+    handleResize();
+
+    // Add event listener for window resizing
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Return null or hide NoChatSelected if on small screens
+  if (isSmallScreen) return null;
 
   return (
     <div className="w-full flex flex-1 flex-col items-center justify-center p-16 bg-base-100/50">

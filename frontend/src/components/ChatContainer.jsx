@@ -7,7 +7,7 @@ import MessageSkeleton from "./skeletons/MessageSkeleton";
 import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
 
-const ChatContainer = () => {
+const ChatContainer = ({ setIsSidebarVisible }) => {
   const {
     messages,
     getMessages,
@@ -88,7 +88,7 @@ const ChatContainer = () => {
 
   return (
     <div className="flex-1 flex flex-col overflow-auto">
-      <ChatHeader />
+      <ChatHeader setIsSidebarVisible={setIsSidebarVisible} />
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages && messages.length > 0 ? (

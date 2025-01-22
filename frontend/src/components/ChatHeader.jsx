@@ -2,17 +2,26 @@ import { X } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
 
-const ChatHeader = () => {
+const ChatHeader = ({ setIsSidebarVisible }) => {
   const { selectedUser, selectedGroup, setSelectedUser, setSelectedGroup } =
     useChatStore();
   const { onlineUsers } = useAuthStore();
 
   const isGroup = !!selectedGroup;
 
-  // For displaying online members in a group
   const onlineMembers =
     isGroup &&
     selectedGroup.members.filter((member) => onlineUsers.includes(member._id));
+
+  const handleClose = () => {
+    if (isGroup) {
+      setSelectedGroup(null);
+    } else {
+      setSelectedUser(null);
+    }
+
+    setIsSidebarVisible(true);
+  };
 
   return (
     <div className="p-2.5 border-b border-base-300">
@@ -51,11 +60,7 @@ const ChatHeader = () => {
             )}
           </div>
         </div>
-        <button
-          onClick={() =>
-            isGroup ? setSelectedGroup(null) : setSelectedUser(null)
-          }
-        >
+        <button onClick={handleClose}>
           <X />
         </button>
       </div>

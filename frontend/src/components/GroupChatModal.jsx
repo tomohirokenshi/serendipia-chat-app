@@ -103,7 +103,7 @@ const GroupChatModal = ({ users, onClose }) => {
               />
             </label>
           </div>
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-zinc-400 mb-3">
             {isCreatingGroup
               ? "Uploading..."
               : "Click the camera icon to update your photo"}
@@ -167,12 +167,12 @@ const GroupChatModal = ({ users, onClose }) => {
         </div>
 
         <div className="mt-4 flex justify-end gap-2">
-          <button onClick={onClose} className="btn btn-outline btn-sm">
+          <button onClick={onClose} className="btn btn-sm">
             Cancel
           </button>
           <button
             onClick={handleCreateGroup}
-            className="btn btn-primary btn-sm"
+            className="btn btn-sm"
             disabled={isCreatingGroup}
           >
             {isCreatingGroup ? (

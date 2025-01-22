@@ -5,7 +5,7 @@ import { useAuthStore } from "../store/useAuthStore";
 import SidebarSkeleton from "./skeletons/SidebarSkeleton";
 import GroupChatModal from "./GroupChatModal";
 
-const Sidebar = () => {
+const Sidebar = ({ setIsSidebarVisible }) => {
   const {
     getUsers,
     getGroups,
@@ -55,30 +55,35 @@ const Sidebar = () => {
     (a, b) => new Date(b.lastMessageTime) - new Date(a.lastMessageTime)
   );
 
+  const handleSelection = (item) => {
+    if (item.type === "user") {
+      setSelectedUser(item);
+    } else {
+      setSelectedGroup(item);
+    }
+    if (window.innerWidth <= 768) {
+      setIsSidebarVisible(false);
+    }
+  };
+
   return (
     <>
-      <aside className="h-full w-25 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
+      <aside className="h-full w-full lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
         <div className="border-b border-base-300 w-full p-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Users className="size-6 hidden lg:block" />
-              <span className="font-medium hidden lg:block">Contacts</span>
+              <Users className="size-6 block" />
+              <span className="font-medium block">Contacts</span>
             </div>
             <button
               onClick={() => setShowGroupModal(true)}
-              className="btn btn-sm gap-2 hidden lg:flex items-center"
+              className="btn btn-sm gap-2 flex items-center"
             >
               <Plus className="size-6" />
-              <span className="hidden sm:inline">Create Group</span>
-            </button>
-            <button
-              onClick={() => setShowGroupModal(true)}
-              className="btn btn-circle lg:hidden"
-            >
-              <Plus className="size-8" />
+              <span className="inline">Create Group</span>
             </button>
           </div>
-          <div className="mt-3 hidden lg:flex items-center gap-2">
+          <div className="mt-3 flex items-center gap-2">
             <label className="cursor-pointer flex items-center gap-2">
               <input
                 type="checkbox"
@@ -98,11 +103,7 @@ const Sidebar = () => {
           {combinedData.map((item) => (
             <button
               key={item._id}
-              onClick={() =>
-                item.type === "user"
-                  ? setSelectedUser(item)
-                  : setSelectedGroup(item)
-              }
+              onClick={() => handleSelection(item)} // Handle selection
               className={`w-full p-3 flex items-center gap-3 hover:bg-base-300 transition-colors ${
                 (item.type === "user" && selectedUser?._id === item._id) ||
                 (item.type === "group" && selectedGroup?._id === item._id)
@@ -110,7 +111,7 @@ const Sidebar = () => {
                   : ""
               }`}
             >
-              <div className="relative mx-auto lg:mx-0">
+              <div className="relative mx-0">
                 <img
                   src={
                     item.type === "user"
@@ -127,7 +128,7 @@ const Sidebar = () => {
                   />
                 )}
               </div>
-              <div className="hidden lg:block text-left min-w-0">
+              <div className="block text-left min-w-0">
                 <div className="font-medium truncate">
                   {item.type === "user" ? item.userName : item.name}
                 </div>
