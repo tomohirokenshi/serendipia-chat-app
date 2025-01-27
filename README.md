@@ -6,8 +6,24 @@ To implement real-time communication, I integrated Socket.IO, which facilitates 
 ## Project File Structure
 This is an overview of the file structure for the project, broken down by the `backend` and `frontend` directories.
 
-### `/frontend`
+### `/backend`
+The backend directory contains all the server-side code, including controllers, routes, models, middleware, and other utilities.
 
+/backend <br>
+├── /node-modules # Node.js dependencies <br>
+├── /src # Source code for the backend <br>
+│ ├── /controllers # Logic for handling incoming requests <br>
+│ ├── /lib # Utility functions and helper files <br>
+│ ├── /middleware # Custom middleware for request processing <br>
+│ ├── /models # Mongoose models for MongoDB collections <br>
+│ ├── /routes # API endpoint definitions <br>
+│ ├── /seeds # Sample data to seed the database <br>
+│ └── index.js # Entry point for the backend server <br>
+├── .env # Environment variables (e.g., DB credentials, ports) <br>
+├── package-lock.json # Lock file for consistent dependency versions <br>
+├── package.json # Contains metadata about the project and dependencies <br>
+
+### `/frontend`
 The frontend directory contains all the client-side code for the React application.
 
 /frontend <br>
@@ -29,3 +45,6 @@ The frontend directory contains all the client-side code for the React applicati
 ├── postcss.config.js # PostCSS configuration for CSS transformations <br>
 ├── tailwind.config.js # Configuration file for TailwindCSS <br>
 └── vite.config.js # Vite configuration for bundling and dev server setup <br>
+<br>
+.gitignore # Specifies files and directories to be ignored by Git <br>
+.package.json # Root package file for managing shared dependencies (if applicable)
