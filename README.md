@@ -36,7 +36,7 @@ Run the following command to install dependencies for both frontend and backend 
 npm run build
 ```
 
-**3. Start the Application** <br>
+**4. Start the Application** <br>
 Start the application by simply running the npm start command:
 ```bash
 npm start
@@ -44,7 +44,7 @@ npm start
 
 ## Usage
 
-Once the app is running, you can access it via your browser at `https://serendipia-chat-app.onrender.com/` or `http://localhost:5173` if you are working on the development environment. 
+Once the app is running, you can access it via your browser at `http://localhost:5173` if you are working on the development environment or you can also visit the already deployed website on `https://serendipia-chat-app.onrender.com/`. 
 
 - **Create an Account**: Sign up with your email and password.
 - **Start a Chat**: After logging in, select a user from the list to begin a conversation. 
