@@ -18,7 +18,7 @@ Start by cloning the project repository to your local machine:
 git clone https://github.com/tomohirokenshi/serendipia-chat-app.git
 ```
 
-**2. Set Up Environment Variables**
+**2. Set Up Environment Variables** <br>
 Create a .env file in the backend or root directory of the project and add the following environment variables. These are required for the backend to connect to the database and Cloudinary for file storage.
 ```bash
 MONGODB_URI=your_mongodb_connection_string
@@ -30,10 +30,16 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 NODE_ENV=development
 ```
 
-**3. Build the Application**
-Build the application by going to the root folder and type the following command to the terminal
+**3. Build the Application** <br>
+Run the following command to install dependencies for both frontend and backend as defined in the scripts:
 ```bash
 npm run build
+```
+
+**3. Start the Application** <br>
+Start the application by simply running the npm start command:
+```bash
+npm start
 ```
 
 ## Usage
