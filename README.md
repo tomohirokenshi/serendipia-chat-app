@@ -12,14 +12,15 @@ Ensure you have the following software installed:
 - **MongoDB** (or use a cloud database like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)) for database storage
 - **Cloudinary** account for image/media storage (optional, if using media uploads)
 
-1. Clone the Repository
+**1. Clone the Repository** <br>
 Start by cloning the project repository to your local machine:
 ```bash
 git clone https://github.com/tomohirokenshi/serendipia-chat-app.git
 ```
 
-2. Set Up Environment Variables
+**2. Set Up Environment Variables**
 Create a .env file in the backend or root directory of the project and add the following environment variables. These are required for the backend to connect to the database and Cloudinary for file storage.
+```bash
 MONGODB_URI=your_mongodb_connection_string
 PORT=3000
 JWT_SECRET=your_jwt_secret_key
@@ -27,9 +28,13 @@ CLOUDINARY_NAME=your_cloudinary_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 NODE_ENV=development
+```
 
-3. Build the Application
-cd serendipia-chat-app //
+**3. Build the Application**
+Build the application by going to the root folder and type the following command to the terminal
+```bash
+npm run build
+```
 
 ## Usage
 
