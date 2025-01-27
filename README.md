@@ -3,6 +3,42 @@ Serendipia is a real-time chat application inspired by the word serendipity, whi
 
 To implement real-time communication, I integrated Socket.IO, which facilitates instant message exchanges between users. Through this project, I have strengthened my knowledge in Express, React, and Node.js while also gaining practical experience in full-stack development.
 
+## Installation Instructions
+Follow the steps below to get the project running on your local machine.
+
+**Prerequisites**
+Ensure you have the following software installed:
+- **Node.js** (v16.x or higher) - [Download Node.js](https://nodejs.org/)
+- **MongoDB** (or use a cloud database like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)) for database storage
+- **Cloudinary** account for image/media storage (optional, if using media uploads)
+
+1. Clone the Repository
+Start by cloning the project repository to your local machine:
+```bash
+git clone https://github.com/tomohirokenshi/serendipia-chat-app.git
+
+2. Set Up Environment Variables
+Create a .env file in the backend or root directory of the project and add the following environment variables. These are required for the backend to connect to the database and Cloudinary for file storage.
+MONGODB_URI=your_mongodb_connection_string
+PORT=3000
+JWT_SECRET=your_jwt_secret_key
+CLOUDINARY_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+NODE_ENV=development
+
+3. Build the Application
+cd serendipia-chat-app //
+
+## Usage
+
+Once the app is running, you can access it via your browser at `https://serendipia-chat-app.onrender.com/` or `http://localhost:5173` if you are working on the development environment. 
+
+- **Create an Account**: Sign up with your email and password.
+- **Start a Chat**: After logging in, select a user from the list to begin a conversation. 
+- **Group Chat**: You can create a group chat by selecting multiple users.
+- **Real-Time Messaging**: Messages will appear instantly as they are sent thanks to Socket.IO.
+
 ## Project File Structure
 This is an overview of the file structure for the project, broken down by the `backend` and `frontend` directories.
 
@@ -21,7 +57,7 @@ The backend directory contains all the server-side code, including controllers, 
 │ └── index.js # Entry point for the backend server <br>
 ├── .env # Environment variables (e.g., DB credentials, ports) <br>
 ├── package-lock.json # Lock file for consistent dependency versions <br>
-├── package.json # Contains metadata about the project and dependencies <br>
+└── package.json # Contains metadata about the project and dependencies <br>
 
 ### `/frontend`
 The frontend directory contains all the client-side code for the React application.
@@ -45,6 +81,5 @@ The frontend directory contains all the client-side code for the React applicati
 ├── postcss.config.js # PostCSS configuration for CSS transformations <br>
 ├── tailwind.config.js # Configuration file for TailwindCSS <br>
 └── vite.config.js # Vite configuration for bundling and dev server setup <br>
-<br>
 .gitignore # Specifies files and directories to be ignored by Git <br>
-.package.json # Root package file for managing shared dependencies (if applicable)
+.package.json # Root package file for managing shared dependencies
